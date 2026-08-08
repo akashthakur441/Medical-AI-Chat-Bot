@@ -69,10 +69,11 @@ Medical-AI-Chat-Bot/
 
 ---
 
-# ⚙️ Installation
+
+
+## ⚙️ Installation
 
 ## Step 1: Clone the Repository
-
 ```bash
 git clone <YOUR_GITHUB_REPOSITORY_LINK>
 cd Medical-AI-Chat-Bot
@@ -80,7 +81,7 @@ cd Medical-AI-Chat-Bot
 
 ---
 
-## Step 2: Create Conda Environment
+## Step 2: Create Virtual Environment
 ```bash
 python -m venv .venv
 
