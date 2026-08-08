@@ -2,52 +2,70 @@
 
 ## 📌 Overview
 
-This project is a domain-specific Medical AI Chatbot built using Retrieval-Augmented Generation (RAG). The chatbot answers medical-related questions by retrieving relevant information from medical PDF documents stored in a Pinecone vector database and generating responses using the Groq Llama 3.1 model.
+This project is a domain-focused Medical AI Chatbot designed to provide general medical information using Large Language Models and Retrieval-Augmented Generation (RAG).
+
+The application is being built with a modular FastAPI backend, Groq LLM integration, and a medical document processing pipeline. Medical PDF documents will be processed and used as the knowledge source for generating more grounded and context-aware responses.
 
 ---
 
 ## 🚀 Features
 
 - Medical Question Answering
-- PDF-based Knowledge Retrieval
+- Groq LLM Integration
+- FastAPI Backend
+- REST API Architecture
+- Medical PDF Text Extraction
 - Retrieval-Augmented Generation (RAG)
-- Pinecone Vector Database
-- HuggingFace Sentence Transformer Embeddings
-- Groq Llama 3.1 Integration
-- Flask Web Interface
+- Medical Document Knowledge Base
+- Environment-based Configuration
+- Interactive Swagger API Documentation
+- Medical Safety-focused Responses
 
 ---
 
 ## 🛠️ Tech Stack
 
 - Python
-- Flask
-- LangChain
-- Pinecone
+- FastAPI
+- Uvicorn
+- Pydantic
 - Groq API
-- HuggingFace Embeddings
-- Sentence Transformers
-- HTML
-- CSS
+- Llama LLM
+- PyPDF
+- python-dotenv
+- RAG
+- Vector Database
+- React *(planned)*
 
 ---
 
 # 📂 Project Structure
 
-```
-Medical-Chat-Bot/
+```text
+Medical-AI-Chat-Bot/
 │
-├── Data/
-├── research/
-├── src/
-├── static/
-├── templates/
-├── app.py
-├── store_index.py
+├── backend/
+│   └── app/
+│       ├── api/
+│       │   └── routes/
+│       │       ├── health.py
+│       │       └── chat.py
+│       │
+│       ├── services/
+│       │   ├── chat_service.py
+│       │   ├── llm_service.py
+│       │   └── document_service.py
+│       │
+│       ├── config.py
+│       └── main.py
+│
+├── data/
+│   └── documents/
+│
 ├── requirements.txt
 ├── README.md
+├── .gitignore
 └── .env
-```
 
 ---
 
@@ -57,23 +75,18 @@ Medical-Chat-Bot/
 
 ```bash
 git clone <YOUR_GITHUB_REPOSITORY_LINK>
-cd Medical-Chat-Bot
+cd Medical-AI-Chat-Bot
 ```
 
 ---
 
 ## Step 2: Create Conda Environment
-
 ```bash
-conda create -n medibot python=3.12 -y
-```
+python -m venv .venv
 
-Activate the environment
-
+Activate the environment on Windows:
 ```bash
-conda activate medibot
-```
-
+.venv\Scripts\activate
 ---
 
 ## Step 3: Install Dependencies
@@ -89,30 +102,37 @@ pip install -r requirements.txt
 Create a file named `.env`
 
 ```env
-PINECONE_API_KEY=your_pinecone_api_key
+APP_NAME=Medical AI Chatbot
+APP_ENV=development
 GROQ_API_KEY=your_groq_api_key
 ```
 
 ---
 
-## Step 5: Create Vector Database
+## Step 5: Add Medical Documents
 
-```bash
-python store_index.py
-```
+Place medical PDF documents inside:
+
+data/documents/
+
+These documents will be used as the knowledge source for the RAG pipeline.
 
 ---
 
 ## Step 6: Run the Application
 
 ```bash
-python app.py
+uvicorn backend.app.main:app --reload
 ```
 
-Open your browser and visit
+Open the API:
 
+http://127.0.0.1:8000
+
+Interactive API documentation:
 ```
-http://127.0.0.1:8080
+http://127.0.0.1:8000/docs
+
 ```
 
 ---
@@ -123,27 +143,31 @@ http://127.0.0.1:8080
 - What are the symptoms of hypertension?
 - What causes asthma?
 - What is anemia?
-- How can I prevent heart disease?
+- What are the risk factors for heart disease?
 
 ---
 
 
 # 🔮 Future Improvements
 
-- Voice-based interaction
+- Retrieval-Augmented Generation (RAG) pipeline
+- Text chunking and embeddings
+- Vector database integration
+- Source-based responses
 - Chat history
-- Multiple PDF support
+- Medical safety guardrails
+- Prompt injection protection
+- Modern React interface
 - Authentication
-- Improved guardrails
 
 ---
 
 # 👨‍💻 Author
 
-**Akshay VP**
+**Akash Thakur**
 
-GitHub: https://github.com/Akshay758
+GitHub: https://github.com/akashthakur441
 
-LinkedIn: https://www.linkedin.com/in/akshay-vp-636628270
+LinkedIn: https://www.linkedin.com/in/akashthakurr/
 
-Portfolio: https://akshay758.github.io/Portfolio/
+Portfolio: https://akashthakur441.github.io/Portfolio/
