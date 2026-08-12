@@ -13,9 +13,10 @@ class ChatRequest(BaseModel):
 
 @router.post("/chat")
 def chat(request: ChatRequest):
-    response = generate_response(request.message)
+    result = generate_response(request.message)
 
     return {
         "message": request.message,
-        "response": response
+        "answer": result["answer"],
+        "sources": result["sources"],
     }

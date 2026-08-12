@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediBot | Medical AI Assistant</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                🩺
+            </div>
+
+            <div>
+                <h1>MediBot</h1>
+                <span>Medical AI</span>
+            </div>
+
+        </div>
+
+
+        <button class="new-chat" onclick="newChat()">
+            <span>＋</span>
+            New Chat
+        </button>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">
+                QUICK QUESTIONS
+            </p>
+
+            <button
+                class="quick-question"
+                onclick="askQuestion('What are the symptoms of diabetes?')"
+            >
+                <span>🩸</span>
+                Diabetes
+            </button>
+
+            <button
+                class="quick-question"
+                onclick="askQuestion('What are the symptoms and triggers of asthma?')"
+            >
+                <span>🫁</span>
+                Asthma
+            </button>
+
+            <button
+                class="quick-question"
+                onclick="askQuestion('What are the risk factors for hypertension?')"
+            >
+                <span>❤️</span>
+                Hypertension
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="ai-status">
+                <span class="online-dot"></span>
+
+                <div>
+                    <strong>AI Online</strong>
+                    <small>Medical RAG enabled</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main">
+
+        <!-- Top Bar -->
+
+        <header class="topbar">
+
+            <div>
+                <h2>Medical Assistant</h2>
+                <p>Ask questions from the medical knowledge base</p>
+            </div>
+
+            <div class="top-status">
+                <span></span>
+                RAG Active
+            </div>
+
+        </header>
+
+
+        <!-- Chat -->
+
+        <section class="chat-area">
+
+            <div id="welcome" class="welcome">
+
+                <div class="hero-icon">
+                    🩺
+                </div>
+
+                <h2>
+                    How can I help you today?
+                </h2>
+
+                <p>
+                    Ask a medical question and get an AI-generated
+                    educational response based on the medical knowledge base.
+                </p>
+
+
+                <div class="suggestion-grid">
+
+                    <button
+                        onclick="askQuestion('What are the symptoms of diabetes?')"
+                    >
+                        <span>🩸</span>
+
+                        <div>
+                            <strong>Diabetes</strong>
+                            <small>Symptoms and information</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        onclick="askQuestion('What are the risk factors for hypertension?')"
+                    >
+                        <span>❤️</span>
+
+                        <div>
+                            <strong>Hypertension</strong>
+                            <small>Risk factors and prevention</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        onclick="askQuestion('What are the symptoms and triggers of asthma?')"
+                    >
+                        <span>🫁</span>
+
+                        <div>
+                            <strong>Asthma</strong>
+                            <small>Symptoms and triggers</small>
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="messages" class="messages"></div>
+
+        </section>
+
+
+        <!-- Input -->
+
+        <footer class="input-section">
+
+            <div class="input-box">
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Ask a medical question..."
+                    rows="1"
+                    onkeydown="handleKeyDown(event)"
+                ></textarea>
+
+                <button
+                    id="sendButton"
+                    onclick="sendMessage()"
+                >
+                    ➤
+                </button>
+
+            </div>
+
+            <p class="disclaimer">
+                MediBot provides general educational information and does not replace professional medical advice.
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
