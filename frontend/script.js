@@ -3,6 +3,17 @@ const messages = document.getElementById("messages");
 const sendButton = document.getElementById("sendButton");
 const welcome = document.getElementById("welcome");
 
+function scrollToBottom() {
+    const chatArea = document.querySelector(".chat-area");
+
+    if (chatArea) {
+        chatArea.scrollTo({
+            top: chatArea.scrollHeight,
+            behavior: "smooth"
+        });
+    }
+}
+
 
 function addMessage(text, type) {
 
@@ -20,7 +31,7 @@ function addMessage(text, type) {
 
     messages.appendChild(message);
 
-    messages.scrollTop = messages.scrollHeight;
+    scrollToBottom();
 }
 
 
@@ -42,7 +53,7 @@ function showTyping() {
 
     messages.appendChild(message);
 
-    messages.scrollTop = messages.scrollHeight;
+    scrollToBottom();
 }
 
 
